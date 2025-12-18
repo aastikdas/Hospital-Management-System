@@ -13,7 +13,7 @@ const Dashboard = () => {
     const fetchAppointments = async () => {
       try {
         const { data } = await api.get(
-          "api/v1/appointment/all",
+          "/api/v1/appointment/all",
           { withCredentials: true }
         );
         setAppointments(data.appointments);

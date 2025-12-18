@@ -58,7 +58,7 @@ const AddNewDoctor = () => {
       formData.append("doctorDepartment", doctorDepartment);
       formData.append("docAvatar", docAvatar);
       await api
-        .post("api/v1/user/doctor/adddoctor", formData, {
+        .post("/api/v1/user/doctor/adddoctor", formData, {
           withCredentials: true,
           headers: { "Content-Type": "multipart/form-data" },
         })

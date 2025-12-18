@@ -14,14 +14,14 @@ import "./App.css";
 import api from "./axios/axios";
 
 const App = () => {
-  const { isAuthenticated, setIsAuthenticated, setAdmin } =
+  const { setIsAuthenticated, setAdmin } =
     useContext(Context);
 
   useEffect(() => {
     const fetchUser = async () => {
       try {
         const response = await api.get(
-          "api/v1/user/admin/me",
+          "/api/v1/user/admin/me",
           {
             withCredentials: true,
           }
@@ -35,7 +35,7 @@ const App = () => {
       }
     };
     fetchUser();
-  }, [isAuthenticated]);
+  },[]);
 
   return (
     <Router>

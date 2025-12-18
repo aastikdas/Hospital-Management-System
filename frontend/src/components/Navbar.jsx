@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     await api
-      .get("api/v1/user/patient/logout", {
+      .get("/api/v1/user/patient/logout", {
         withCredentials: true,
       })
       .then((res) => {

@@ -10,7 +10,7 @@ const Messages = () => {
     const fetchMessages = async () => {
       try {
         const { data } = await api.get(
-          "api/v1/message/allmessages",
+          "/api/v1/message/allmessages",
           { withCredentials: true }
         );
         setMessages(data.messages);

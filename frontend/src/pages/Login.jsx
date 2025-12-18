@@ -18,7 +18,7 @@ const Login = () => {
     try {
       await api
         .post(
-          "api/v1/user/login",
+          "/api/v1/user/login",
           { email, password, confirmPassword, role: "Patient" },
           {
             withCredentials: true,

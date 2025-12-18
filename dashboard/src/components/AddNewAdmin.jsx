@@ -23,7 +23,7 @@ const AddNewAdmin = () => {
     try {
       await api
         .post(
-          "api/v1/user/admin/addnew",
+          "/api/v1/user/admin/addnew",
           { firstName, lastName, email, phone, nic, dob, gender, password },
           {
             withCredentials: true,

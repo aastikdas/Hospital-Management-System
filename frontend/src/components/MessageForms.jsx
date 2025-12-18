@@ -14,7 +14,7 @@ const MessageForm = () => {
     try {
       await api
         .post(
-          "api/v1/message/send",
+          "/api/v1/message/send",
           { firstName, lastName, email, phone, message },
           {
             withCredentials: true,

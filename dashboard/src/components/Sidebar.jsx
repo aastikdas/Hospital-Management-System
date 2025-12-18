@@ -18,7 +18,7 @@ const Sidebar = () => {
 
   const handleLogout = async () => {
     await api
-      .get("api/v1/user/admin/logout", {
+      .get("/api/v1/user/admin/logout", {
         withCredentials: true,
       })
       .then((res) => {

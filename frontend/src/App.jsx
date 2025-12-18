@@ -9,16 +9,15 @@ import Login from './pages/Login'
 import { ToastContainer } from 'react-toastify';
 import Navbar from './components/Navbar'
 import { Context } from './main'
-import axios from 'axios'
 import Footer from './components/Footer'
 import api from './axios/axios'
 
 const App = () => {
   const {isAuthenticated,setIsAuthenticated,setUser}= useContext(Context)
-  useEffect(  ()=>{
+  useEffect( ()=>{
     const fetchUser = async ()=>{
         try {
-        const user = await api.get("api/v1/user/patient/me",{withCredentials:true})
+        const user = await api.get("/api/v1/user/patient/me",{withCredentials:true})
         setIsAuthenticated(true)
         setUser(user.data.user)
       } catch (error) {
@@ -28,7 +27,7 @@ const App = () => {
       }
     }
     fetchUser()
-  },[isAuthenticated])
+  },[])
   return (
     <Router>
       <Navbar/>
