@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import api from "../../../dashboard/src/axios/axios";
+import api from "../axios/axios";
 
 const MessageForm = () => {
   const [firstName, setFirstName] = useState("");
