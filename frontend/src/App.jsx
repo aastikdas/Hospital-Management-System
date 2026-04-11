@@ -11,6 +11,7 @@ import Navbar from './components/Navbar'
 import { Context } from './main'
 import Footer from './components/Footer'
 import api from './axios/axios'
+import AIHelpCenter from './components/AIHelpCenter'
 
 const App = () => {
   const {isAuthenticated,setIsAuthenticated,setUser}= useContext(Context)
@@ -23,7 +24,6 @@ const App = () => {
       } catch (error) {
         setIsAuthenticated(false)
         setUser({})
-        console.error(error)
       }
     }
     fetchUser()
@@ -38,6 +38,7 @@ const App = () => {
         <Route path='/register' element={<Register/>}/>
         <Route path='/login' element={<Login/>}/>
       </Routes>
+      <AIHelpCenter/>
       <Footer/>
       <ToastContainer position='top-center' />
     </Router>
