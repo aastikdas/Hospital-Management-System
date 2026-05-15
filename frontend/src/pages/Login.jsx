@@ -12,6 +12,7 @@ const Login = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const navigateTo = useNavigate();
+  const adminPortalUrl = import.meta.env.VITE_DASHBOARD_URL || "http://localhost:5174";
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -48,7 +49,7 @@ const Login = () => {
   return (
     <>
       <div className="mx-auto mt-10 grid w-full max-w-7xl grid-cols-1 gap-8 px-4 pb-16 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
-        <section className="flex flex-col justify-between gap-7 rounded-3xl border border-sky-100 bg-gradient-to-br from-slate-900 via-sky-800 to-cyan-500 p-7 text-white shadow-2xl shadow-sky-200/70 sm:p-10">
+        <section className="flex flex-col justify-between gap-7 rounded-3xl border border-sky-100 bg-linear-to-br from-slate-900 via-sky-800 to-cyan-500 p-7 text-white shadow-2xl shadow-sky-200/70 sm:p-10">
           <div className="inline-flex w-fit items-center gap-4 rounded-2xl border border-white/30 bg-white/15 px-4 py-3 backdrop-blur-sm">
             <img src="/logo.png" alt="Hospital Management System logo" className="h-16 w-16 rounded-xl bg-white p-2" />
             <div>
@@ -59,9 +60,9 @@ const Login = () => {
 
           <div>
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/80">Welcome back</p>
-            <h1 className="mb-4 text-4xl font-extrabold leading-tight">Sign in to manage your care, appointments, and messages.</h1>
+            <h1 className="mb-4 text-4xl font-extrabold leading-tight">Choose your portal and sign in with the right access.</h1>
             <p className="text-base leading-7 text-white/85">
-              Keep everything in one place with a clean dashboard built for quick access on any device.
+              Patients can log in here to manage care, appointments, and messages. Admins can open the dashboard portal separately.
             </p>
           </div>
 
@@ -79,13 +80,41 @@ const Login = () => {
           <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
             <img src="/signin.png" alt="Patient login illustration" className="mx-auto w-full max-w-sm" />
           </div>
+
+          <div className="rounded-2xl border border-white/20 bg-white/10 p-4 backdrop-blur-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/75">Need the admin area?</p>
+            <div className="mt-3 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-sm font-semibold">Admin Portal</p>
+                <p className="text-sm leading-6 text-white/80">For doctors, staff, and hospital admins.</p>
+              </div>
+              <a
+                href={"https://hospital-management-system-1-dashboard.onrender.com/"}
+                className="inline-flex items-center justify-center rounded-xl bg-white px-5 py-3 text-sm font-semibold tracking-wide text-sky-800 transition hover:-translate-y-0.5 hover:bg-sky-50"
+              >
+                Go to Admin Login
+              </a>
+            </div>
+          </div>
         </section>
 
         <section className="rounded-3xl border border-slate-200 bg-white/90 p-7 shadow-xl shadow-slate-200/60 backdrop-blur-sm transition-colors duration-300 dark:border-slate-700 dark:bg-slate-900/90 dark:shadow-slate-900/60 sm:p-9">
           <h2 className="text-3xl font-extrabold text-slate-900 dark:text-white">Log In</h2>
-          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Please log in to continue.</p>
+          <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">Please log in as a patient, or use the admin portal if you manage the hospital.</p>
 
-          <form onSubmit={handleLogin} className="mt-6 space-y-4">
+          <div className="mt-6 flex rounded-2xl border border-slate-200 bg-slate-50 p-2">
+            <span className="flex-1 rounded-xl bg-white px-4 py-3 text-center text-sm font-semibold text-slate-900 shadow-sm">
+              Patient Login
+            </span>
+            <a
+              href={"https://hospital-management-system-1-dashboard.onrender.com/"}
+              className="ml-2 flex flex-1 items-center justify-center rounded-xl px-4 py-3 text-center text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+            >
+              Admin Portal
+            </a>
+          </div>
+
+          <form onSubmit={handleLogin} className="mt-6 space-y-6">
             <input
               className={fieldClass}
               type="email"
@@ -116,7 +145,7 @@ const Login = () => {
                 className="rounded-xl bg-sky-600 px-8 py-3 text-sm font-semibold tracking-wide text-white shadow-md shadow-sky-200 transition hover:-translate-y-0.5 hover:bg-sky-700"
                 type="submit"
               >
-                Login
+                Sign In as Patient
               </button>
             </div>
           </form>

@@ -10,7 +10,6 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Sidebar from "./components/Sidebar";
 import AddNewAdmin from "./components/AddNewAdmin";
-import "./App.css";
 import api from "./axios/axios";
 
 const App = () => {
@@ -31,7 +30,6 @@ const App = () => {
       } catch (error) {
         setIsAuthenticated(false);
         setAdmin({});
-        console.error(error)
       }
     };
     fetchUser();
