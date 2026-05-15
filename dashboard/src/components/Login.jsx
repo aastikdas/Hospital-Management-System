@@ -44,8 +44,8 @@ const Login = () => {
 
   return (
     <section className="dashboard-shell min-h-screen px-4 py-6 md:px-6 lg:px-8">
-      <div className="mx-auto grid min-h-[calc(100vh-3rem)] max-w-7xl overflow-hidden rounded-[2rem] border border-white/50 bg-white/55 shadow-[0_20px_80px_rgba(15,23,42,0.14)] backdrop-blur-xl md:grid-cols-[1.1fr_0.9fr]">
-        <div className="relative hidden overflow-hidden bg-gradient-to-br from-sky-700 via-cyan-700 to-teal-700 p-10 text-white md:flex md:flex-col md:justify-between">
+      <div className="mx-auto grid min-h-[calc(100vh-3rem)] max-w-7xl overflow-hidden rounded-4xl border border-white/50 bg-white/55 shadow-[0_20px_80px_rgba(15,23,42,0.14)] backdrop-blur-xl md:grid-cols-[1.1fr_0.9fr]">
+        <div className="relative hidden overflow-hidden bg-linear-to-br from-sky-700 via-cyan-700 to-teal-700 p-10 text-white md:flex md:flex-col md:justify-between">
           <div className="absolute -left-20 top-6 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
           <div className="absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-sky-200/10 blur-3xl" />
 
