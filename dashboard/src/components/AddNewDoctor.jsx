@@ -85,15 +85,15 @@ const AddNewDoctor = () => {
   }
 
   return (
-    <section className="dashboard-shell min-h-screen transition-colors duration-300 md:ml-24 lg:ml-32">
+    <section className="dashboard-shell min-h-screen transition-colors duration-200 md:ml-20 lg:ml-28">
       {/* Top spacing for mobile */}
       <div className="h-16 md:h-0" />
 
       <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="card">
-          <div className="border-b border-slate-200 bg-slate-50/50 px-6 py-6 sm:px-8">
+          <div className="border-b border-slate-200 bg-slate-50 px-6 py-5 sm:px-8">
             <div className="flex items-center gap-4">
-              <img src="/logo.png" alt="logo" className="h-12 w-12 rounded-lg bg-white p-1 shadow-md" />
+              <img src="/logo.png" alt="logo" className="h-11 w-11 rounded-lg border border-slate-200 bg-white p-1" />
               <div>
                 <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">
                   Register New Doctor
@@ -111,7 +111,7 @@ const AddNewDoctor = () => {
                 <img
                   src={docAvatarPreview ? `${docAvatarPreview}` : "/docHolder.jpg"}
                   alt="Doctor Avatar"
-                  className="h-32 w-32 rounded-2xl border-4 border-sky-200 object-cover shadow-lg"
+                  className="h-32 w-32 rounded-xl border border-slate-300 object-cover shadow-sm"
                 />
                 <label className="absolute inset-0 flex cursor-pointer items-center justify-center rounded-2xl bg-black/40 opacity-0 transition hover:opacity-100">
                   <span className="text-sm font-semibold text-white">Change</span>

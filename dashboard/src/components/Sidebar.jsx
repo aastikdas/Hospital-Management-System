@@ -8,11 +8,13 @@ import { MdAddModerator } from "react-icons/md";
 import { IoPersonAddSharp } from "react-icons/io5";
 import { toast } from "react-toastify";
 import { Context } from "../main";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import api from "../axios/axios";
 
 const Sidebar = () => {
   const [show, setShow] = useState(false);
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const { isAuthenticated, setIsAuthenticated } = useContext(Context);
 
@@ -53,19 +55,27 @@ const Sidebar = () => {
     setShow(!show);
   };
 
+  const getNavBtnClass = (path) => {
+    const isActive = currentPath === path;
+    if (isActive) {
+      return "flex h-11 w-11 items-center justify-center rounded-lg bg-blue-600 text-xl text-white shadow-sm ring-2 ring-blue-400/30 transition md:h-12 md:w-12";
+    }
+    return "flex h-11 w-11 items-center justify-center rounded-lg bg-slate-800 text-xl text-slate-300 transition hover:bg-slate-700 hover:text-white md:h-12 md:w-12";
+  };
+
   return (
     <>
       <nav
         style={!isAuthenticated ? { display: "none" } : { display: "flex" }}
-        className="dashboard-sidebar-bg fixed left-0 top-0 z-40 flex h-screen w-24 flex-col items-center justify-between px-4 py-8 shadow-xl transition-all duration-300 md:w-32"
+        className="dashboard-sidebar-bg fixed left-0 top-0 z-40 flex h-screen w-20 flex-col items-center justify-between border-r border-slate-800 px-3 py-6 shadow-sm transition-all duration-200 md:w-28"
       >
-        <div className="flex flex-col items-center gap-8">
-          <img src="/logo.png" alt="logo" className="h-12 w-12 rounded-lg bg-white p-1 shadow-lg" />
+        <div className="flex flex-col items-center gap-6">
+          <img src="/logo.png" alt="logo" className="h-11 w-11 rounded-lg bg-white p-1.5 shadow-sm" />
           
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-4">
             <button
               onClick={gotoHomePage}
-              className="group relative flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-2xl text-white transition hover:bg-sky-500 md:h-14 md:w-14"
+              className={getNavBtnClass("/")}
               title="Dashboard"
             >
               <TiHome />
@@ -73,7 +83,7 @@ const Sidebar = () => {
             
             <button
               onClick={gotoDoctorsPage}
-              className="group relative flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-2xl text-white transition hover:bg-sky-500 md:h-14 md:w-14"
+              className={getNavBtnClass("/doctors")}
               title="Doctors"
             >
               <FaUserDoctor />
@@ -81,7 +91,7 @@ const Sidebar = () => {
             
             <button
               onClick={gotoAddNewAdmin}
-              className="group relative flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-2xl text-white transition hover:bg-sky-500 md:h-14 md:w-14"
+              className={getNavBtnClass("/admin/addnew")}
               title="Add Admin"
             >
               <MdAddModerator />
@@ -89,7 +99,7 @@ const Sidebar = () => {
             
             <button
               onClick={gotoAddNewDoctor}
-              className="group relative flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-2xl text-white transition hover:bg-sky-500 md:h-14 md:w-14"
+              className={getNavBtnClass("/doctor/addnew")}
               title="Add Doctor"
             >
               <IoPersonAddSharp />
@@ -97,7 +107,7 @@ const Sidebar = () => {
             
             <button
               onClick={gotoMessagesPage}
-              className="group relative flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-2xl text-white transition hover:bg-sky-500 md:h-14 md:w-14"
+              className={getNavBtnClass("/messages")}
               title="Messages"
             >
               <AiFillMessage />
@@ -108,7 +118,7 @@ const Sidebar = () => {
         <div className="flex flex-col items-center gap-4">
           <button
             onClick={handleLogout}
-            className="flex h-12 w-12 items-center justify-center rounded-xl bg-rose-500/20 text-2xl text-rose-300 transition hover:bg-rose-500 hover:text-white md:h-14 md:w-14"
+            className="flex h-11 w-11 items-center justify-center rounded-lg bg-red-600/20 text-xl text-red-300 transition hover:bg-red-600 hover:text-white md:h-12 md:w-12"
             title="Logout"
           >
             <RiLogoutBoxFill />
@@ -117,20 +127,20 @@ const Sidebar = () => {
       </nav>
 
       <div
-        className={`fixed left-0 top-0 z-30 h-screen w-full bg-black/50 transition-opacity duration-300 md:hidden ${
+        className={`fixed left-0 top-0 z-30 h-screen w-full bg-black/50 transition-opacity duration-200 md:hidden ${
           show ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
         onClick={() => setShow(false)}
       />
 
-      <div className="fixed left-0 top-0 z-50 flex h-16 w-full items-center gap-4 bg-white/75 px-4 backdrop-blur-xl transition-colors duration-300 md:hidden">
+      <div className="fixed left-0 top-0 z-50 flex h-16 w-full items-center gap-4 border-b border-slate-200 bg-white px-4 transition-colors duration-200 md:hidden">
         <button
-          className="flex h-10 w-10 items-center justify-center rounded-xl text-xl text-slate-700 transition hover:bg-slate-100"
+          className="flex h-10 w-10 items-center justify-center rounded-lg text-xl text-slate-700 transition hover:bg-slate-100"
           onClick={() => setShow(!show)}
         >
           <GiHamburgerMenu />
         </button>
-        <img src="/logo.png" alt="logo" className="h-10 w-10 rounded-lg bg-white p-1 shadow-md" />
+        <img src="/logo.png" alt="logo" className="h-9 w-9 rounded-lg border border-slate-200 bg-white p-1" />
         <p className="font-semibold text-slate-900">MediTrack Admin</p>
       </div>
     </>

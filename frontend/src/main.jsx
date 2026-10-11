@@ -12,9 +12,7 @@ const AppWrapper = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState({});
   const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem("theme-mode");
-    if (saved) return saved === "dark";
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return localStorage.getItem("theme-mode") === "dark";
   });
 
   const toggleTheme = () => {
@@ -28,7 +26,7 @@ const AppWrapper = () => {
 
   React.useEffect(() => {
     document.documentElement.classList.toggle("dark", isDark);
-  }, []);
+  }, [isDark]);
 
   return (
     <Context.Provider

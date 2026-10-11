@@ -183,26 +183,26 @@ const AIHelpCenter = () => {
   return (
     <>
       <button
-        className="fixed bottom-5 right-5 z-[1050] inline-flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-sky-600 via-blue-600 to-cyan-500 text-white shadow-xl shadow-blue-200 transition hover:-translate-y-1 dark:shadow-blue-900"
+        className="fixed bottom-5 right-5 z-[1050] inline-flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white shadow-md transition hover:bg-blue-700"
         type="button"
         aria-label="Open AI help center"
         onClick={() => setIsOpen(true)}
       >
-        <FiHeadphones size={24} />
+        <FiHeadphones size={22} />
       </button>
 
       <aside
-        className={`fixed bottom-4 right-4 top-20 z-[1040] flex w-[calc(100%-1.5rem)] max-w-sm flex-col rounded-2xl border border-sky-100 bg-white shadow-2xl shadow-slate-300/30 transition-all duration-300 dark:border-sky-900/40 dark:bg-slate-900 dark:shadow-slate-900/50 sm:w-full ${
+        className={`fixed bottom-4 right-4 top-20 z-[1040] flex w-[calc(100%-1.5rem)] max-w-sm flex-col rounded-xl border border-slate-200 bg-white shadow-xl transition-all duration-200 dark:border-neutral-800 dark:bg-neutral-900 sm:w-full ${
           isOpen ? "translate-x-0 opacity-100" : "pointer-events-none translate-x-[110%] opacity-0"
         }`}
       >
-        <div className="flex items-start justify-between gap-4 border-b border-slate-100 px-4 py-3 dark:border-slate-700">
+        <div className="flex items-start justify-between gap-4 border-b border-slate-100 px-4 py-3 dark:border-neutral-800">
           <div>
             <h4 className="text-lg font-bold text-slate-900 dark:text-white">FAQ</h4>
-            <p className="text-xs text-slate-500 dark:text-slate-400">Emergency support and quick answers</p>
+            <p className="text-xs text-slate-500 dark:text-neutral-400">Emergency support and quick answers</p>
           </div>
           <button
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
+            className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-700 transition hover:bg-slate-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700"
             type="button"
             aria-label="Close help center"
             onClick={() => setIsOpen(false)}
@@ -212,9 +212,9 @@ const AIHelpCenter = () => {
         </div>
 
         <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-4 py-4">
-          <label className="text-sm font-semibold text-slate-700 dark:text-slate-300" htmlFor="help-question">Choose your question</label>
+          <label className="text-sm font-semibold text-slate-700 dark:text-neutral-300" htmlFor="help-question">Choose your question</label>
               <select
-                className="w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder-slate-400 dark:focus:border-sky-500 dark:focus:ring-sky-950"
+                className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none transition focus:border-blue-600 focus:ring-1 focus:ring-blue-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:placeholder-neutral-400"
                 id="help-question"
                 value={selectedQuestion}
                 onChange={handleQuestionChange}
@@ -227,15 +227,15 @@ const AIHelpCenter = () => {
                 ))}
               </select>
 
-              <div className="flex items-start gap-2 rounded-xl border border-emerald-200 bg-emerald-50 p-3 dark:border-emerald-900 dark:bg-emerald-950">
-                <FiAlertCircle size={18} className="mt-0.5 text-emerald-700 dark:text-emerald-400" />
-                <p className="text-sm leading-6 text-emerald-900 dark:text-emerald-200">{currentAnswer}</p>
+              <div className="flex items-start gap-2 rounded-lg border border-slate-200 bg-slate-50 p-3 dark:border-neutral-700 dark:bg-neutral-800">
+                <FiAlertCircle size={18} className="mt-0.5 text-blue-600 dark:text-blue-400" />
+                <p className="text-sm leading-6 text-slate-800 dark:text-neutral-200">{currentAnswer}</p>
               </div>
 
               <div className="grid gap-2">
                 {EMERGENCY_ACTIONS.map((action) => (
                   <button
-                    className="rounded-lg bg-rose-50 px-3 py-2 text-left text-sm font-semibold text-rose-700 transition hover:bg-rose-100 dark:bg-rose-950 dark:text-rose-300 dark:hover:bg-rose-900"
+                    className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-left text-sm font-medium text-red-700 transition hover:bg-red-100 dark:border-red-900/50 dark:bg-red-950/40 dark:text-red-300"
                     key={action.value}
                     type="button"
                     onClick={() => handleEmergencyAction(action.value, action.label)}
@@ -245,12 +245,10 @@ const AIHelpCenter = () => {
                 ))}
               </div>
 
-
-
           <div className="mt-1 flex items-center justify-between">
             <h5 className="text-sm font-bold text-slate-800 dark:text-white">Recent Help History</h5>
             <button
-              className="rounded-lg bg-sky-50 px-2.5 py-1.5 text-xs font-semibold text-sky-700 transition disabled:cursor-not-allowed disabled:opacity-50 dark:bg-sky-950 dark:text-sky-300"
+              className="rounded-lg border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700 transition disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-300"
               type="button"
               onClick={clearHistory}
               disabled={!userHistoryKey}
@@ -260,25 +258,25 @@ const AIHelpCenter = () => {
           </div>
 
           {!userHistoryKey && (
-            <p className="text-xs text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-neutral-400">
               Log in to save your help history.
             </p>
           )}
 
           {userHistoryKey && history.length === 0 && (
-            <p className="text-xs text-slate-500 dark:text-slate-400">No history yet. Your latest help actions will appear here.</p>
+            <p className="text-xs text-slate-500 dark:text-neutral-400">No history yet. Your latest help actions will appear here.</p>
           )}
 
           {userHistoryKey && history.length > 0 && (
             <div className="space-y-2">
               {history.map((entry) => (
-                <div key={entry.id} className="rounded-xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-700 dark:bg-slate-800">
-                  <span className="mb-1 inline-flex rounded-full bg-indigo-100 px-2 py-0.5 text-[11px] font-semibold text-indigo-700 dark:bg-indigo-950 dark:text-indigo-300">
+                <div key={entry.id} className="rounded-lg border border-slate-200 bg-slate-50 p-3 dark:border-neutral-800 dark:bg-neutral-800">
+                  <span className="mb-1 inline-flex rounded bg-blue-100 px-2 py-0.5 text-[11px] font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
                     {entry.type === "emergency" ? "Emergency" : "FAQ"}
                   </span>
                   <h6 className="text-sm font-semibold text-slate-800 dark:text-white">{entry.question}</h6>
-                  <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-slate-400">{entry.answer}</p>
-                  <small className="mt-1 block text-[11px] text-slate-500 dark:text-slate-500">{entry.time}</small>
+                  <p className="mt-1 text-xs leading-5 text-slate-600 dark:text-neutral-400">{entry.answer}</p>
+                  <small className="mt-1 block text-[11px] text-slate-500 dark:text-neutral-500">{entry.time}</small>
                 </div>
               ))}
             </div>

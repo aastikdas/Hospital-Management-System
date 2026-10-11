@@ -56,29 +56,29 @@ const Dashboard = () => {
   }
 
   return (
-    <section className="dashboard-shell min-h-screen transition-colors duration-300 md:ml-24 lg:ml-32">
+    <section className="dashboard-shell min-h-screen transition-colors duration-200 md:ml-20 lg:ml-28">
       {/* Top spacing for mobile */}
       <div className="h-16 md:h-0" />
 
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Welcome Section */}
-        <div className="mb-12 grid gap-8 md:grid-cols-3">
-          <div className="card md:col-span-2 flex flex-col justify-between gap-8 md:flex-row md:items-center rounded-2xl bg-white p-8 shadow-md">
-            <div className="flex items-center gap-8">
+        <div className="mb-8 grid gap-6 md:grid-cols-3">
+          <div className="card md:col-span-2 flex flex-col justify-between gap-6 md:flex-row md:items-center rounded-xl bg-white p-6 border border-slate-200 shadow-sm">
+            <div className="flex items-center gap-6">
               <img
                 src="/doctor.png"
                 alt="Doctor"
-                className="h-20 w-20 rounded-full object-cover shadow-lg md:h-24 md:w-24"
+                className="h-16 w-16 rounded-full object-cover border border-slate-200 md:h-20 md:w-20"
               />
 
               <div>
-                <p className="text-sm text-slate-600">Welcome back,</p>
+                <p className="text-sm text-slate-500">Welcome back,</p>
 
-                <h1 className="mt-2 text-2xl font-bold text-slate-900">
+                <h1 className="mt-1 text-2xl font-bold text-slate-900">
                   {admin && `${admin.firstName} ${admin.lastName}`}
                 </h1>
 
-                <p className="mt-3 text-sm text-slate-500">
+                <p className="mt-1 text-xs font-medium text-slate-500">
                   Admin Dashboard
                 </p>
               </div>
@@ -86,56 +86,56 @@ const Dashboard = () => {
           </div>
 
           {/* Total Appointments */}
-          <div className="dashboard-stat-sky flex flex-col items-center justify-center rounded-2xl border border-sky-200 bg-sky-50 p-8 shadow-md">
-            <p className="text-sm font-semibold uppercase tracking-wide text-sky-700">
+          <div className="flex flex-col items-center justify-center rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
               Total Appointments
             </p>
 
-            <h3 className="mt-4 text-5xl font-bold text-sky-600">
+            <h3 className="mt-2 text-4xl font-bold text-slate-900">
               1500
             </h3>
 
-            <p className="mt-2 text-xs text-sky-600/70">
+            <p className="mt-1 text-xs text-slate-500">
               All time
             </p>
           </div>
         </div>
 
         {/* Secondary Stats */}
-        <div className="mb-12 grid gap-8 sm:grid-cols-2">
+        <div className="mb-8 grid gap-6 sm:grid-cols-2">
           {/* Registered Doctors */}
-          <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6 shadow-md">
+          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-wide text-emerald-700">
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                   Registered Doctors
                 </p>
 
-                <h3 className="mt-4 text-4xl font-bold text-emerald-600">
+                <h3 className="mt-2 text-3xl font-bold text-slate-900">
                   10
                 </h3>
               </div>
 
-              <div className="text-6xl opacity-40">
+              <div className="text-5xl opacity-30">
                 👨‍⚕️
               </div>
             </div>
           </div>
 
           {/* Pending Appointments */}
-          <div className="rounded-2xl border border-rose-200 bg-rose-50 p-6 shadow-md">
+          <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-wide text-rose-700">
+                <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
                   Pending Appointments
                 </p>
 
-                <h3 className="mt-4 text-4xl font-bold text-rose-600">
+                <h3 className="mt-2 text-3xl font-bold text-slate-900">
                   12
                 </h3>
               </div>
 
-              <div className="text-6xl opacity-40">
+              <div className="text-5xl opacity-30">
                 ⏰
               </div>
             </div>
@@ -143,14 +143,14 @@ const Dashboard = () => {
         </div>
 
         {/* Appointments Table */}
-        <div className="overflow-hidden rounded-2xl bg-white shadow-md">
+        <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
           {/* Header */}
-          <div className="border-b border-slate-200 bg-slate-50 px-8 py-6">
-            <h2 className="text-xl font-bold text-slate-900">
+          <div className="border-b border-slate-200 bg-slate-50 px-6 py-5">
+            <h2 className="text-lg font-bold text-slate-900">
               Appointment Management
             </h2>
 
-            <p className="mt-2 text-sm text-slate-600">
+            <p className="mt-1 text-xs text-slate-500">
               Review and manage patient appointments
             </p>
           </div>

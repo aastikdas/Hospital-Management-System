@@ -89,13 +89,13 @@ const AppointmentForm = () => {
   };
 
   const fieldClass =
-    "w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 shadow-sm outline-none transition focus:border-sky-500 focus:ring-4 focus:ring-sky-100 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder-slate-400 dark:focus:border-sky-500 dark:focus:ring-sky-950";
+    "w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 outline-none transition focus:border-blue-600 focus:ring-1 focus:ring-blue-600 dark:border-neutral-700 dark:bg-neutral-800 dark:text-white dark:placeholder-neutral-400 dark:focus:border-blue-500 dark:focus:ring-blue-500";
 
   return (
     <>
-      <section className="mx-auto mt-14 w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl border border-sky-100 bg-white/90 p-6 shadow-xl shadow-sky-100/60 backdrop-blur-sm transition-colors duration-300 dark:border-sky-900/40 dark:bg-slate-900/90 dark:shadow-sky-950/60 sm:p-8">
-          <h2 className="mb-5 text-3xl font-extrabold text-slate-900 dark:text-white">Appointment</h2>
+      <section className="mx-auto mt-12 w-full max-w-7xl px-4 sm:px-6 lg:mt-16 lg:px-8">
+        <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm transition-colors duration-200 dark:border-neutral-800 dark:bg-neutral-900 sm:p-8">
+          <h2 className="mb-5 text-3xl font-bold text-slate-900 dark:text-white">Appointment</h2>
           <form onSubmit={handleAppointment} className="space-y-4">
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               <input
@@ -213,18 +213,20 @@ const AppointmentForm = () => {
               onChange={(e) => setAddress(e.target.value)}
               placeholder="Address"
             />
-            <div className="flex items-center justify-end gap-3 rounded-xl bg-slate-50 px-4 py-3 dark:bg-slate-800">
-              <p className="mb-0 text-sm font-medium text-slate-700 dark:text-slate-300">Have you visited before?</p>
+            <div className="flex items-center justify-end gap-3 rounded-lg bg-slate-50 px-4 py-3 dark:bg-neutral-800">
+              <p className="mb-0 text-sm font-medium text-slate-700 dark:text-neutral-300">Have you visited before?</p>
               <input
                 type="checkbox"
                 checked={hasVisited}
                 onChange={(e) => setHasVisited(e.target.checked)}
-                className="h-5 w-5 rounded border-slate-300 text-emerald-600 dark:border-slate-600"
+                className="h-5 w-5 rounded border-slate-300 text-blue-600 dark:border-neutral-600"
               />
             </div>
-            <button className="mx-auto block rounded-xl bg-sky-600 px-8 py-3 text-sm font-semibold tracking-wide text-white shadow-md shadow-sky-200 transition hover:-translate-y-0.5 hover:bg-sky-700">
-              GET APPOINTMENT
-            </button>
+            <div className="flex justify-center pt-2">
+              <button className="rounded-lg bg-blue-600 px-8 py-2.5 text-sm font-medium text-white transition hover:bg-blue-700">
+                GET APPOINTMENT
+              </button>
+            </div>
           </form>
         </div>
       </section>

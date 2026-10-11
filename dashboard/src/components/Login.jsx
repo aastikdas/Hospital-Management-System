@@ -44,64 +44,61 @@ const Login = () => {
 
   return (
     <section className="dashboard-shell min-h-screen px-4 py-6 md:px-6 lg:px-8">
-      <div className="mx-auto grid min-h-[calc(100vh-3rem)] max-w-7xl overflow-hidden rounded-4xl border border-white/50 bg-white/55 shadow-[0_20px_80px_rgba(15,23,42,0.14)] backdrop-blur-xl md:grid-cols-[1.1fr_0.9fr]">
-        <div className="relative hidden overflow-hidden bg-linear-to-br from-sky-700 via-cyan-700 to-teal-700 p-10 text-white md:flex md:flex-col md:justify-between">
-          <div className="absolute -left-20 top-6 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
-          <div className="absolute -bottom-24 right-0 h-72 w-72 rounded-full bg-sky-200/10 blur-3xl" />
-
+      <div className="mx-auto grid min-h-[calc(100vh-3rem)] max-w-7xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm md:grid-cols-[1.1fr_0.9fr]">
+        <div className="relative hidden overflow-hidden border-r border-slate-200 bg-slate-50 p-10 text-slate-900 md:flex md:flex-col md:justify-between">
           <div className="relative z-10 flex items-center gap-4">
-            <img src="/logo.png" alt="logo" className="h-16 w-16 rounded-2xl bg-white/95 p-2 shadow-lg" />
+            <img src="/logo.png" alt="logo" className="h-14 w-14 rounded-lg border border-slate-200 bg-white p-2 shadow-sm" />
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.35em] text-sky-100/90">MediTrack</p>
-              <h2 className="mt-1 text-2xl font-bold">Hospital Admin Console</h2>
+              <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">MediTrack</p>
+              <h2 className="mt-1 text-2xl font-bold text-slate-900">Hospital Admin Console</h2>
             </div>
           </div>
 
           <div className="relative z-10 max-w-md">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-sky-100/80">Calm, clear, reliable</p>
-            <h3 className="mt-4 text-4xl font-black leading-tight">
-              A softer workspace for busy hospital operations.
+            <p className="text-xs font-semibold uppercase tracking-wider text-blue-600">Hospital Administration</p>
+            <h3 className="mt-3 text-3xl font-bold leading-tight text-slate-900">
+              Hospital management and administrative control.
             </h3>
-            <p className="mt-4 text-base leading-7 text-sky-50/90">
-              Keep appointments, staff records, and patient communication organized in one place with a more welcoming admin experience.
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              Keep appointments, staff records, and patient communication organized in one place with a clear, reliable administrative workspace.
             </p>
           </div>
 
           <div className="relative z-10 grid gap-4 sm:grid-cols-3">
-            <div className="rounded-2xl bg-white/12 p-4 backdrop-blur-md">
-              <p className="text-2xl font-bold">24/7</p>
-              <p className="mt-1 text-sm text-sky-50/80">Admin access</p>
+            <div className="rounded-lg border border-slate-200 bg-white p-3.5 shadow-sm">
+              <p className="text-xl font-bold text-slate-900">24/7</p>
+              <p className="mt-1 text-xs text-slate-500">Admin access</p>
             </div>
-            <div className="rounded-2xl bg-white/12 p-4 backdrop-blur-md">
-              <p className="text-2xl font-bold">Fast</p>
-              <p className="mt-1 text-sm text-sky-50/80">Patient flow</p>
+            <div className="rounded-lg border border-slate-200 bg-white p-3.5 shadow-sm">
+              <p className="text-xl font-bold text-slate-900">Fast</p>
+              <p className="mt-1 text-xs text-slate-500">Patient flow</p>
             </div>
-            <div className="rounded-2xl bg-white/12 p-4 backdrop-blur-md">
-              <p className="text-2xl font-bold">Secure</p>
-              <p className="mt-1 text-sm text-sky-50/80">Admin access only</p>
+            <div className="rounded-lg border border-slate-200 bg-white p-3.5 shadow-sm">
+              <p className="text-xl font-bold text-slate-900">Secure</p>
+              <p className="mt-1 text-xs text-slate-500">Authorized only</p>
             </div>
           </div>
         </div>
 
         <div className="relative flex items-center justify-center px-4 py-10 sm:px-10">
           <div className="w-full max-w-md">
-            <div className="rounded-[1.75rem] border border-slate-200 bg-white/90 p-8 shadow-[0_18px_50px_rgba(15,23,42,0.14)] backdrop-blur-md sm:p-10">
-              <div className="flex flex-col items-center gap-5 text-center">
-                <img src="/logo.png" alt="logo" className="h-16 w-16 rounded-2xl bg-sky-50 p-2 shadow-md" />
+            <div className="rounded-xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+              <div className="flex flex-col items-center gap-4 text-center">
+                <img src="/logo.png" alt="logo" className="h-14 w-14 rounded-lg border border-slate-200 bg-white p-1.5 shadow-sm" />
 
                 <div>
-                  <h1 className="text-3xl font-extrabold text-slate-900">
+                  <h1 className="text-2xl font-bold text-slate-900">
                     Welcome Back
                   </h1>
-                  <p className="mt-2 text-sm text-slate-600">
+                  <p className="mt-1 text-sm text-slate-600">
                     Sign in to continue to the MediTrack admin panel
                   </p>
                 </div>
               </div>
 
-              <form onSubmit={handleLogin} className="mt-8 space-y-5">
+              <form onSubmit={handleLogin} className="mt-6 space-y-4">
                 <div>
-                  <label htmlFor="email" className="form-label text-black">Email Address</label>
+                  <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-1.5">Email Address</label>
                   <input
                     id="email"
                     type="email"
@@ -109,12 +106,12 @@ const Login = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="form-input border border-r-4 rounded-md "
+                    className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-xs placeholder:text-slate-400 hover:border-slate-400 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="password" className="form-label text-black">Password</label>
+                  <label htmlFor="password" className="block text-sm font-semibold text-slate-700 mb-1.5">Password</label>
                   <input
                     id="password"
                     type="password"
@@ -122,12 +119,12 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="form-input border border-r-4 rounded-md "
+                    className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-xs placeholder:text-slate-400 hover:border-slate-400 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="confirmPassword" className="form-label text-black">Confirm Password</label>
+                  <label htmlFor="confirmPassword" className="block text-sm font-semibold text-slate-700 mb-1.5">Confirm Password</label>
                   <input
                     id="confirmPassword"
                     type="password"
@@ -135,16 +132,18 @@ const Login = () => {
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
                     required
-                    className="form-input border border-r-4 rounded-md "
+                    className="block w-full rounded-lg border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 shadow-xs placeholder:text-slate-400 hover:border-slate-400 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600/20"
                   />
                 </div>
 
-                <button
-                  type="submit"
-                  className="btn-primary w-fit p-2 rounded-md text-center bg-blue-300 "
-                >
-                  Sign In
-                </button>
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full rounded-lg bg-blue-600 py-2.5 text-center text-sm font-semibold text-white shadow-xs transition hover:bg-blue-700"
+                  >
+                    Sign In
+                  </button>
+                </div>
               </form>
             </div>
           </div>

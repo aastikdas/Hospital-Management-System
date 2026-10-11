@@ -27,7 +27,7 @@ const Messages = () => {
   }
 
   return (
-    <section className="dashboard-shell min-h-screen transition-colors duration-300 md:ml-24 lg:ml-32">
+    <section className="dashboard-shell min-h-screen transition-colors duration-200 md:ml-20 lg:ml-28">
       {/* Top spacing for mobile */}
       <div className="h-16 md:h-0" />
 
